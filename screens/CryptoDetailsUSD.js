@@ -1,5 +1,5 @@
 import React from 'react';
-import {ActivityIndicator, RefreshControl, ToastAndroid} from 'react-native';
+import {ActivityIndicator, RefreshControl, ToastAndroid, BackHandler} from 'react-native';
 import styled from 'styled-components/native';
 import Colors from '../constans/Colors';
 import Url from '../constans/Url';
@@ -90,9 +90,15 @@ class CryptoDetailsUSD extends React.Component {
         })
     }
 
+    goBack = () => {
+        this.props.navigation.goBack()
+        return true
+    }
     componentDidMount(){
+        BackHandler.addEventListener('goback', this.goBack)
         this.getData()
     }
+    componentWillUnmount(){BackHandler.removeEventListener('goback', this.goBack)}
 
     render(){
         return(

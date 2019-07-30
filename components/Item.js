@@ -41,7 +41,7 @@ const Item = ({icon, name, price, pressFn}) => (
         <CryptoIcon source={{uri: icon}}/>
         <Name>{name}</Name>
         <Price>{price}</Price>
-        <Button onPress={pressFn}>
+        <Button underlayColor={Colors.darkBlue} onPress={pressFn}>
             <Icon
                 name={'arrow-circle-right'}
                 size={35}

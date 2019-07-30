@@ -1,9 +1,10 @@
 import React from 'react';
-import {ActivityIndicator, RefreshControl, ToastAndroid} from 'react-native';
+import {ActivityIndicator, RefreshControl, ToastAndroid, BackHandler} from 'react-native';
 import styled from 'styled-components/native';
 import Item from '../components/Item';
 import Colors from '../constans/Colors';
 import Url from '../constans/Url';
+import Data from '../constans/Data';
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 const ScrollView = styled.ScrollView`
@@ -67,7 +68,15 @@ class PriceEURScreen extends React.Component {
         })
     }
 
-    componentDidMount(){this.getData()}
+    goBack = () => {
+        BackHandler.exitApp()
+        return true
+    }
+    componentDidMount(){
+        BackHandler.addEventListener('goback', this.goBack)
+        this.getData()
+    }
+    componentWillUnmount(){BackHandler.removeEventListener('goback', this.goBack)}
     handleButtonOnPress = (name, fullName, icon) => {
         Data.name = name;
         Data.fullName = fullName;
