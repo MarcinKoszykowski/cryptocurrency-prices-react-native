@@ -3,14 +3,12 @@ import styled from 'styled-components/native';
 import Colors from '../constans/Colors';
 
 const Icon = styled.Image`
-height: 35;
-width: 35;
+height: 35px;
+width: 35px;
 resize-mode: center;
 tint-color: ${Colors.lightCyan};
 `
-const Button = styled.TouchableHighlight`
-margin-left: 5%;
-`
+const Button = styled.TouchableHighlight`margin-left: 5%;`
 
 const CurrencyIcon = ({icon, pressFn}) => (
     <Button onPress={pressFn}>

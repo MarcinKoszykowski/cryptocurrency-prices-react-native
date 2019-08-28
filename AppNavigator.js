@@ -1,12 +1,6 @@
-import React from 'react';
-import Icon from 'react-native-vector-icons/FontAwesome'
-import {createBottomTabNavigator, createStackNavigator, createAppContainer} from 'react-navigation';
-import PriceUSDScreen from './screens/PriceUSDScreen';
-import PriceEURScreen from './screens/PriceEURScreen';
-import PriceGBPScreen from './screens/PriceGBPScreen';
-import CryptoDetailsUSD from './screens/CryptoDetailsUSD';
-import CryptoDetailsEUR from './screens/CryptoDetailsEUR';
-import CryptoDetailsGBP from './screens/CryptoDetailsGBP';
+import { createStackNavigator, createAppContainer } from 'react-navigation'
+import PriceScreen from './screens/PriceScreen'
+import CryptoDetails from './screens/CryptoDetails'
 import Colors from './constans/Colors';
 
 const navigationOptionsStack = {
@@ -18,53 +12,14 @@ const navigationOptionsStack = {
     },
 }
 
-const navigationOptionsTab = (value) => {
-    return {
-        tabBarOptions: {
-            tabStyle: {paddingVertical: 2},
-            labelStyle: {paddingBottom: 1},
-            activeTintColor: Colors.magenta,
-            inactiveTintColor: Colors.darkBlue,
-            style: {backgroundColor: Colors.lightCyan},
-        },
-        tabBarLabel: value.toUpperCase(),
-        tabBarIcon: ({tintColor}) => (
-            <Icon name={value} size={22} color={tintColor} />
-        )
-    }
-}
-
-const AppBottomTabNavigatorMain = createBottomTabNavigator({
-    PriceUSDScreen: {
-        screen: PriceUSDScreen,
-        navigationOptions: navigationOptionsTab('usd')
-    },
-    PriceEURScreen: {
-        screen: PriceEURScreen,
-        navigationOptions: navigationOptionsTab('eur')
-    },
-    PriceGBPScreen: {
-        screen: PriceGBPScreen,
-        navigationOptions: navigationOptionsTab('gbp')
-    }
-})
-
 const AppStackNavigator = createStackNavigator({
-    TabMainNavigation: AppBottomTabNavigatorMain,
-
-    CryptoDetailsUSD: {
-        screen: CryptoDetailsUSD,
+    Price: { screen: PriceScreen },
+    CryptoDetails: {
+        screen: CryptoDetails,
         navigationOptions: {header: null}
-    },
-    CryptoDetailsEUR: {
-        screen: CryptoDetailsEUR,
-        navigationOptions: {header: null}
-    },
-    CryptoDetailsGBP: {
-        screen: CryptoDetailsGBP,
-        navigationOptions: {header: null}
-    },
+    }
 }, {
+    initialRouteName: 'Price',
     defaultNavigationOptions: navigationOptionsStack
 })
 

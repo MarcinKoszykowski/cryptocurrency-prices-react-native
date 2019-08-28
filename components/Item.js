@@ -4,34 +4,34 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 import Colors from '../constans/Colors';
 
 const View = styled.View`
-position:relative;
+position: relative;
 width: 100%;
-height: 70;
+height: 70px;
 justify-content: center;
-border-top-width: ${props => props.name === 'BTC' ? 0 : 1.5};
+border-top-width: ${props => props.name === 'BTC' ? 0 : `1.5px`};
 border-color: ${Colors.magenta};
 `
 const CryptoIcon = styled.Image`
-position:absolute;
-height: 35;
-width: 35;
+position: absolute;
+height: 35px;
+width: 35px;
 resize-mode: center;
 left: 5%;
 `
 const Name = styled.Text`
-position:absolute;
+position: absolute;
 left: 20%;
-font-size: 20;
+font-size: 20px;
 color: ${Colors.lightCyan};
 `
 const Price = styled.Text`
-position:absolute;
+position: absolute;
 left: 42.5%;
-font-size: 20;
+font-size: 20px;
 color: ${Colors.lightBlue};
 `
 const Button = styled.TouchableHighlight`
-position:absolute;
+position: absolute;
 right: 7.5%;
 `
 
