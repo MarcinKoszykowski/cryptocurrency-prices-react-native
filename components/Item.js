@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components/native';
+import React from 'react'
+import styled from 'styled-components/native'
 import Icon from 'react-native-vector-icons/FontAwesome'
-import Colors from '../constans/Colors';
+import Colors from '../constans/Colors'
 
 const View = styled.View`
 position: relative;
@@ -35,7 +35,6 @@ position: absolute;
 right: 7.5%;
 `
 
-
 const Item = ({icon, name, price, pressFn}) => (
     <View name={name}>
         <CryptoIcon source={{uri: icon}}/>
@@ -49,6 +48,6 @@ const Item = ({icon, name, price, pressFn}) => (
             />
         </Button>
     </View>
-);
+)
 
-export default Item;
+export default Item

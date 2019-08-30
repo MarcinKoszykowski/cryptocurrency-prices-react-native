@@ -1,7 +1,7 @@
-import React from 'react';
-import { ActivityIndicator } from 'react-native';
-import styled from 'styled-components/native';
-import Colors from '../constans/Colors';
+import React from 'react'
+import { ActivityIndicator } from 'react-native'
+import styled from 'styled-components/native'
+import Colors from '../constans/Colors'
 
 const View = styled.View`
 height: 100%;
@@ -11,10 +11,10 @@ background-color: ${Colors.darkBlue};
 justify-content: center;
 `
 
-const LoadingView = () => (
+const Loading = () => (
     <View>
         <ActivityIndicator size='large' color={Colors.lightCyan} />
     </View>
 )
 
-export default LoadingView
+export default Loading

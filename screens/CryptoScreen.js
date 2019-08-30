@@ -1,11 +1,11 @@
-import React,  {useState, useEffect } from 'react';
-import { RefreshControl, ToastAndroid } from 'react-native';
-import styled from 'styled-components/native';
-import Colors from '../constans/Colors';
-import Url from '../constans/Url';
-import Text from '../components/Text';
-import LoadingView from '../components/LoadingView';
-import ErrorView from '../components/ErrorView';
+import React,  {useState, useEffect } from 'react'
+import { RefreshControl, ToastAndroid } from 'react-native'
+import styled from 'styled-components/native'
+import Colors from '../constans/Colors'
+import Url from '../constans/Url'
+import Detail from '../components/Detail'
+import Loading from '../components/Loading'
+import Error from '../components/Error';
 
 const View = styled.View`
 flex: 1;
@@ -19,7 +19,7 @@ height: 80px;
 justify-content: flex-start;
 text-align: center;
 `
-const CryptoName = styled.Text`
+const Name = styled.Text`
 position: absolute;
 color: ${Colors.darkBlue};
 font-size: 20px;
@@ -27,7 +27,7 @@ font-weight: 500;
 bottom: 15px;
 left: 20px;
 `
-const CryptoIcon = styled.Image`
+const Icon = styled.Image`
 position: absolute;
 height: 40px;
 width: 40px;
@@ -36,7 +36,7 @@ right: 20px;
 bottom: 10px;
 `
 
-function CryptoDetails({navigation}){
+function CryptoScreen({navigation}){
     const [loading, setLoading] = useState(true)
     const [refreshing, setRefreshing] = useState(false)
     const [error, setError] = useState(false)
@@ -79,11 +79,11 @@ function CryptoDetails({navigation}){
     return(
         <View>
             <ViewHeader>
-                <CryptoName>{navigation.state.params.fullName}</CryptoName>
-                <CryptoIcon source={{uri: navigation.state.params.icon}} />
+                <Name>{navigation.state.params.fullName}</Name>
+                <Icon source={{uri: navigation.state.params.icon}} />
             </ViewHeader>
-            {loading && <LoadingView />}
-            {error && <ErrorView />}
+            {loading && <Loading />}
+            {error && <Error />}
             <ScrollView
                 refreshControl={
                     <RefreshControl
@@ -91,20 +91,20 @@ function CryptoDetails({navigation}){
                         onRefresh={onRefresh}
                     />
                 }>
-                <Text title='PRICE' value={data.PRICE} />
-                <Text title='MARKET CAP' value={data.MKTCAP} />
-                <Text title='VOLUME 24H' value={data.TOTALTOPTIERVOLUME24HTO} />
-                <Text title='OPEN 24H' value={data.OPEN24HOUR} />
-                <Text title='LOW 24H' value={data.LOW24HOUR} />
-                <Text title='HIGH 24H' value={data.HIGH24HOUR} />
-                <Text title='CHANGE 24H' value={error ? '' : data.CHANGEPCT24HOUR + ' %'} />
-                <Text title='OPEN DAY' value={data.OPENDAY} />
-                <Text title='LOW DAY' value={data.LOWDAY} />
-                <Text title='HIGH DAY' value={data.HIGHDAY} />
-                <Text last title='CHANGE DAY' value={error ? '' : data.CHANGEPCTDAY + ' %'} />
+                <Detail title='PRICE' value={data.PRICE} />
+                <Detail title='MARKET CAP' value={data.MKTCAP} />
+                <Detail title='VOLUME 24H' value={data.TOTALTOPTIERVOLUME24HTO} />
+                <Detail title='OPEN 24H' value={data.OPEN24HOUR} />
+                <Detail title='LOW 24H' value={data.LOW24HOUR} />
+                <Detail title='HIGH 24H' value={data.HIGH24HOUR} />
+                <Detail title='CHANGE 24H' value={error ? '' : data.CHANGEPCT24HOUR + ' %'} />
+                <Detail title='OPEN DAY' value={data.OPENDAY} />
+                <Detail title='LOW DAY' value={data.LOWDAY} />
+                <Detail title='HIGH DAY' value={data.HIGHDAY} />
+                <Detail last title='CHANGE DAY' value={error ? '' : data.CHANGEPCTDAY + ' %'} />
             </ScrollView>
         </View>
     )
 }
 
-export default CryptoDetails;
+export default CryptoScreen

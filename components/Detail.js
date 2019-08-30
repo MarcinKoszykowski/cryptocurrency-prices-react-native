@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components/native';
-import Colors from '../constans/Colors';
+import React from 'react'
+import styled from 'styled-components/native'
+import Colors from '../constans/Colors'
 
 const View = styled.View`
 position: relative;
@@ -23,11 +23,11 @@ font-size: 18px;
 color: ${Colors.lightCyan};
 `
 
-const Text = ({title, value, last}) => (
+const Detail = ({title, value, last}) => (
     <View last={last}>
         <Title>{title}</Title>
         <Value>{value}</Value>
     </View>
 )
 
-export default Text;
+export default Detail

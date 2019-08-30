@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components/native';
-import Colors from '../constans/Colors';
+import React from 'react'
+import styled from 'styled-components/native'
+import Colors from '../constans/Colors'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 const View = styled.View`
@@ -19,7 +19,7 @@ color: ${Colors.lightCyan};
 margin-top: 10px;
 `
 
-const ErrorView = () => (
+const Error = () => (
     <View>
         <Icon
             name={'bug'}
@@ -30,4 +30,4 @@ const ErrorView = () => (
     </View>
 )
 
-export default ErrorView
+export default Error

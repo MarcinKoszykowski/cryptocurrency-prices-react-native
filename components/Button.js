@@ -9,19 +9,20 @@ width: 33%;
 justify-content: center;
 align-items: center;
 `
-const Button = styled.TouchableHighlight`
+const TouchableHighlight = styled.TouchableHighlight`
 width: 95%;
 align-items: center;
-z-index: 1;`
+z-index: 1;
+`
 const Text = styled.Text`
 margin-top: 1px;
 font-size: 12px;
 color: ${props => props.cash === props.name ? Colors.magenta : Colors.darkBlue};
 `
 
-const CashIcon = ({cash, pressFn, name}) => (
+const Button = ({cash, pressFn, name}) => (
     <View>
-        <Button
+        <TouchableHighlight
             underlayColor={Colors.lightCyan}
             onPress={pressFn}
         >
@@ -30,9 +31,9 @@ const CashIcon = ({cash, pressFn, name}) => (
                 size={26}
                 color={cash.toLowerCase() === name ? Colors.magenta : Colors.darkBlue}
             />
-        </Button>
+        </TouchableHighlight>
         <Text cash={cash.toLowerCase()} name={name}>{name.toUpperCase()}</Text>
     </View>
 )
 
-export default CashIcon
+export default Button

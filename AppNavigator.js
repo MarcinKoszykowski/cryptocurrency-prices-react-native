@@ -1,6 +1,6 @@
 import { createStackNavigator, createAppContainer } from 'react-navigation'
 import PriceScreen from './screens/PriceScreen'
-import CryptoDetails from './screens/CryptoDetails'
+import CryptoScreen from './screens/CryptoScreen'
 import Colors from './constans/Colors';
 
 const navigationOptionsStack = {
@@ -14,8 +14,8 @@ const navigationOptionsStack = {
 
 const AppStackNavigator = createStackNavigator({
     Price: { screen: PriceScreen },
-    CryptoDetails: {
-        screen: CryptoDetails,
+    Crypto: {
+        screen: CryptoScreen,
         navigationOptions: {header: null}
     }
 }, {

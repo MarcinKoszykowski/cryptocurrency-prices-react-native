@@ -4,9 +4,9 @@ import styled from 'styled-components/native';
 import Item from '../components/Item';
 import Colors from '../constans/Colors';
 import Url from '../constans/Url';
-import LoadingView from '../components/LoadingView';
-import ErrorView from '../components/ErrorView';
-import CashIcon from '../components/CashIcon';
+import Button from '../components/Button';
+import Loading from '../components/Loading';
+import Error from '../components/Error';
 
 const View = styled.View`
 flex: 1;
@@ -34,7 +34,7 @@ function PriceScreen ({navigation}) {
     }
 
     const handleButtonOnPress = (crypto) => {
-        navigation.navigate('CryptoDetails', {
+        navigation.navigate('Crypto', {
             cash: cash,
             name: crypto.CoinInfo.Name,
             fullName: crypto.CoinInfo.FullName,
@@ -99,8 +99,8 @@ function PriceScreen ({navigation}) {
 
     return(
         <View>
-            {loading && <LoadingView />}
-            {error && <ErrorView />}
+            {loading && <Loading />}
+            {error && <Error />}
             <ScrollView refreshControl={
                 <RefreshControl
                     refreshing={refreshing}
@@ -118,94 +118,12 @@ function PriceScreen ({navigation}) {
             ))}
             </ScrollView>
             <BottomBar>
-                <CashIcon cash={cash} name={'usd'} pressFn={() => handleIconOnPress('USD')} />
-                <CashIcon cash={cash} name={'eur'} pressFn={() => handleIconOnPress('EUR')} />
-                <CashIcon cash={cash} name={'gbp'} pressFn={() => handleIconOnPress('GBP')} />
+                <Button cash={cash} name={'usd'} pressFn={() => handleIconOnPress('USD')} />
+                <Button cash={cash} name={'eur'} pressFn={() => handleIconOnPress('EUR')} />
+                <Button cash={cash} name={'gbp'} pressFn={() => handleIconOnPress('GBP')} />
             </BottomBar>
         </View>
     )
 }
-
-// class PriceScreen extends React.Component {
-//     state = {
-//         data: [],
-//         isLoading: true,
-//         refreshing: false,
-//         error: false
-//     }
-
-    // onRefresh = () => {
-    //     this.setState({refreshing: true});
-    //     this.getData();
-    // }
-
-    // getData = () => {
-    //     fetch(Url.fullCap('EUR'), {
-    //         method: 'GET',
-    //         headers: {
-    //             Accept: 'application/json',
-    //             'Content-Type': 'application/json',
-    //         }
-    //     })
-    //     .then(response => response.json())
-    //     .then(responseJSON => {
-    //         this.setState({data : responseJSON.Data})
-    //         this.setState({isLoading: false})
-    //         this.setState({refreshing: false})
-    //         this.setState({error: false})
-    //     })
-    //     .catch(() => {
-    //         ToastAndroid.show('Server connection error!', ToastAndroid.LONG)
-    //         this.setState({isLoading: false})
-    //         this.setState({error: true})
-    //     })
-    // }
-
-    // goBack = () => {
-    //     BackHandler.exitApp()
-    //     return true
-    // }
-    // componentDidMount(){
-    //     BackHandler.addEventListener('goback', this.goBack)
-    //     this.getData()
-    // }
-    // componentWillUnmount(){BackHandler.removeEventListener('goback', this.goBack)}
-    // handleButtonOnPress = (name, fullName, icon) => {
-    //     Data.name = name;
-    //     Data.fullName = fullName;
-    //     Data.icon = icon;
-    //     this.props.navigation.navigate('CryptoDetailsEUR')
-    // }
-
-    
-//         return(
-//             <>
-                
-                
-//                 <ScrollView
-//                 refreshControl={
-//                     <RefreshControl
-//                         refreshing={this.state.refreshing}
-//                         onRefresh={this.onRefresh}
-//                     />
-//                 }>
-//                 {this.state.data.map(crypto => (
-//                     <Item
-//                         pressFn={() => this.handleButtonOnPress(
-//                                 crypto.CoinInfo.Name,
-//                                 crypto.CoinInfo.FullName,
-//                                 'https://www.cryptocompare.com' + crypto.CoinInfo.ImageUrl
-//                             )
-//                         }
-//                         key={crypto.CoinInfo.Id}
-//                         icon={'https://www.cryptocompare.com' + crypto.CoinInfo.ImageUrl}
-//                         name={crypto.CoinInfo.Name}
-//                         price={crypto.DISPLAY.EUR.PRICE}
-//                     />
-//                 ))}
-//             </ScrollView>
-//             </>
-//         )
-// }
 
 export default PriceScreen;
