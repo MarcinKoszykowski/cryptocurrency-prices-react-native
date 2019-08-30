@@ -2,20 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { RefreshControl, ToastAndroid } from 'react-native';
 import styled from 'styled-components/native';
 import Item from '../components/Item';
-import Colors from '../constans/Colors';
-import Url from '../constans/Url';
+import colors from '../constans/colors';
+import url from '../constans/url';
 import Button from '../components/Button';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
 
 const View = styled.View`
 flex: 1;
-background-color: ${Colors.darkBlue};
+background-color: ${colors.darkBlue};
 `
 const ScrollView = styled.ScrollView`flex-grow: 1;`
 const BottomBar = styled.View`
 justify-content: flex-end;
-background-color: ${Colors.lightCyan};
+background-color: ${colors.lightCyan};
 flex-direction: row;
 `
 
@@ -47,7 +47,7 @@ function PriceScreen ({navigation}) {
     }
 
     const getData = () => {
-        fetch(Url.fullCapUSD, {
+        fetch(url.fullCapUSD, {
             method: 'GET',
             headers: {
                 Accept: 'application/json',
@@ -57,7 +57,7 @@ function PriceScreen ({navigation}) {
         .then(response => response.json())
         .then(responseJSON => {
             setUSD(responseJSON.Data)
-            fetch(Url.fullCapEUR, {
+            fetch(url.fullCapEUR, {
                 method: 'GET',
                 headers: {
                     Accept: 'application/json',
@@ -67,7 +67,7 @@ function PriceScreen ({navigation}) {
             .then(response => response.json())
             .then(responseJSON => {
                 setEUR(responseJSON.Data)
-                fetch(Url.fullCapGBP, {
+                fetch(url.fullCapGBP, {
                     method: 'GET',
                     headers: {
                         Accept: 'application/json',

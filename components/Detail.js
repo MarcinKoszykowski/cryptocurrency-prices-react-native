@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components/native'
-import Colors from '../constans/Colors'
+import React from 'react';
+import styled from 'styled-components/native';
+import colors from '../constans/colors';
 
 const View = styled.View`
 position: relative;
@@ -8,19 +8,19 @@ width: 100%;
 height: 60px;
 justify-content: center;
 border-bottom-width: ${props => props.last ? 0 : 1.5};
-border-color: ${Colors.magenta};
+border-color: ${colors.magenta};
 `
 const Title = styled.Text`
 position: absolute;
 left: 7.5%;
 font-size: 18px;
-color: ${Colors.magenta};
+color: ${colors.magenta};
 `
 const Value = styled.Text`
 position: absolute;
 right: 7.5%;
 font-size: 18px;
-color: ${Colors.lightCyan};
+color: ${colors.lightCyan};
 `
 
 const Detail = ({title, value, last}) => (
@@ -30,4 +30,4 @@ const Detail = ({title, value, last}) => (
     </View>
 )
 
-export default Detail
+export default Detail;

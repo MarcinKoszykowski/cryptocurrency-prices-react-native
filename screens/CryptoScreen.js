@@ -1,27 +1,27 @@
 import React,  {useState, useEffect } from 'react'
 import { RefreshControl, ToastAndroid } from 'react-native'
 import styled from 'styled-components/native'
-import Colors from '../constans/Colors'
-import Url from '../constans/Url'
+import colors from '../constans/colors'
+import url from '../constans/url'
 import Detail from '../components/Detail'
 import Loading from '../components/Loading'
 import Error from '../components/Error';
 
 const View = styled.View`
 flex: 1;
-background-color: ${Colors.darkBlue};
+background-color: ${colors.darkBlue};
 `
 const ScrollView = styled.ScrollView`flex-grow: 1;`
 const ViewHeader = styled.View`
 position: relative;
-background-color: ${Colors.white};
+background-color: ${colors.white};
 height: 80px;
 justify-content: flex-start;
 text-align: center;
 `
 const Name = styled.Text`
 position: absolute;
-color: ${Colors.darkBlue};
+color: ${colors.darkBlue};
 font-size: 20px;
 font-weight: 500;
 bottom: 15px;
@@ -48,7 +48,7 @@ function CryptoScreen({navigation}){
     }
 
     const getData = () => {
-        fetch(Url.fullCryptoData(
+        fetch(url.fullCryptoData(
             navigation.state.params.name,
             navigation.state.params.cash), {
             method: 'GET',

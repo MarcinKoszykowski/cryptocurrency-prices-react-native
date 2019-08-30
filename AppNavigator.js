@@ -1,14 +1,14 @@
 import { createStackNavigator, createAppContainer } from 'react-navigation'
 import PriceScreen from './screens/PriceScreen'
 import CryptoScreen from './screens/CryptoScreen'
-import Colors from './constans/Colors';
+import colors from './constans/colors';
 
 const navigationOptionsStack = {
     title: 'Cryptocurrency Prices',
-    headerStyle: {backgroundColor: Colors.magenta},
+    headerStyle: {backgroundColor: colors.magenta},
     headerTitleStyle: {
         fontWeight: '500',
-        color: Colors.lightBlue
+        color: colors.lightBlue
     },
 }
 
